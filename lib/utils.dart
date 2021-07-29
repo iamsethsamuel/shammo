@@ -32,7 +32,7 @@ void pop(BuildContext context){
     Navigator.of(context).pop();
 }
 
-void showSnackBar(BuildContext context, dynamic widget, {Duration duration, double containerHeight}) {
+void showSnackBar(BuildContext context, dynamic widget, {Duration? duration, double? containerHeight}) {
   ScaffoldMessenger.of(context).removeCurrentSnackBar();
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     backgroundColor: canvasColor(context),
@@ -81,13 +81,13 @@ void closeDialog(BuildContext context) {
 }
 
 Future postRequest(BuildContext context, String url, dynamic data,
-    {bool showProgressIndicator = true, Map headers}) {
+    {bool showProgressIndicator = true, Map? headers}) {
   Map customHeaders = headers != null ? headers : {};
   return dio
       .post(url,
           data: data,
           options: Options(headers: {
-            ...customHeaders
+            ...customHeaders as Map<String, dynamic>
           }))
       .catchError((err) {
     showSnackBar(context, "Sorry an error occurred");
@@ -97,17 +97,17 @@ Future postRequest(BuildContext context, String url, dynamic data,
   });
 }
 
-Future getRequest(BuildContext context, String url, {bool futureBuilder, Map headers}) {
+Future getRequest(BuildContext context, String url, {bool? futureBuilder, Map? headers}) {
 
   Map customHeaders = headers != null ? headers : {};
 
   return dio
       .get(url,
           options: Options(headers: {
-            ...customHeaders
+            ...customHeaders as Map<String, dynamic>
           }))
       .catchError((err) {
-    if (!futureBuilder) showSnackBar(context, "Sorry an error occurred");
+    if (!futureBuilder!) showSnackBar(context, "Sorry an error occurred");
     print(err);
   });
 }
@@ -117,8 +117,8 @@ void removeSnackbar(BuildContext context) {
 }
 
 
-Color generateColor(String type, String text) {
-  Color color;
+Color? generateColor(String type, String text) {
+  Color? color;
   if (type == "text") {
     if (text.contains("#")) {
       try {
@@ -150,7 +150,7 @@ LinearGradient convertGradient(String gradient) {
       String hex = "${values[0]}${values[1]}${values[2]}";
       return Color(int.parse("${values[3].padLeft(2, "0")}" + hex, radix: 16));
     } else if (color.contains("#")) {
-      return Color(int.tryParse(color.substring(1), radix: 16) + 0xFF000000);
+      return Color(int.tryParse(color.substring(1), radix: 16)! + 0xFF000000);
     } else {
       return Colors.blueAccent;
     }
@@ -160,7 +160,7 @@ LinearGradient convertGradient(String gradient) {
     List parsed = gradient.split(", ")
       ..where((element) => element.contains("rgba") || element.contains("#")).toList();
     List<String> colors = [];
-    for (String color in parsed) {
+    for (String color in parsed as Iterable<String>) {
       if (color.contains("rgba")) {
         // print(color.substring(color.indexOf(RegExp("\\d+(?:\\.\\d+)?%")),color.indexOf("%")));
         colors.add(color.substring(color.indexOf("rgba"), color.indexOf(")") + 1));

@@ -5,17 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:shammo/utils.dart';
 
 class Badge extends StatelessWidget {
-  Badge({Key key, this.child, this.badge, this.badgeColor}) : super(key: key);
-  final Widget child;
-  final Widget badge;
-  final Color badgeColor;
+  Badge({Key? key, this.child, this.badge, this.badgeColor}) : super(key: key);
+  final Widget? child;
+  final Widget? badge;
+  final Color? badgeColor;
 
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: 10),
       child: Stack(
         children: [
-          child,
+          child!,
           Positioned(
             child: Container(
               child: Center(child: badge),
@@ -35,12 +35,12 @@ class Badge extends StatelessWidget {
 }
 
 class ContainerButton extends StatelessWidget {
-  ContainerButton({Key key, this.body, this.action, this.bodyColor, this.margin, this.padding})
+  ContainerButton({Key? key, this.body, this.action, this.bodyColor, this.margin, this.padding})
       : super(key: key);
-  final Widget body;
-  final Widget action;
-  final Color bodyColor;
-  final EdgeInsets margin, padding;
+  final Widget? body;
+  final Widget? action;
+  final Color? bodyColor;
+  final EdgeInsets? margin, padding;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +75,7 @@ Widget dropDropButtonUnderline(BuildContext context) {
 
 class PostCard extends StatelessWidget {
   PostCard(
-      {Key key,
+      {Key? key,
       this.title,
       this.actions,
       this.action,
@@ -88,16 +88,16 @@ class PostCard extends StatelessWidget {
       this.avatarDecoration,
       this.padding})
       : super(key: key);
-  final Widget title;
-  final List<Widget> actions;
-  final Widget action;
-  final Widget subheader;
-  final Widget avatar;
-  final Widget content;
-  final BoxDecoration decoration;
-  final BoxConstraints constraints;
-  final EdgeInsets margin;
-  final EdgeInsets padding;
+  final Widget? title;
+  final List<Widget>? actions;
+  final Widget? action;
+  final Widget? subheader;
+  final Widget? avatar;
+  final Widget? content;
+  final BoxDecoration? decoration;
+  final BoxConstraints? constraints;
+  final EdgeInsets? margin;
+  final EdgeInsets? padding;
   final avatarDecoration;
 
   @override
@@ -120,7 +120,7 @@ class PostCard extends StatelessWidget {
                           margin: EdgeInsets.only(right: 10),
                           decoration: avatarDecoration,
                           child: this.avatar),
-                if (this.title != null) Expanded(flex: 9, child: this.title),
+                if (this.title != null) Expanded(flex: 9, child: this.title!),
                 if (this.action != null) Container(child: this.action),
               ],
             ),
@@ -132,7 +132,7 @@ class PostCard extends StatelessWidget {
               margin: EdgeInsets.all(5),
               width: width(context),
               child: Column(
-                children: [this.content],
+                children: [this.content!],
               ),
             ),
           if (this.actions != null)
@@ -140,7 +140,7 @@ class PostCard extends StatelessWidget {
               margin: EdgeInsets.all(5),
               width: width(context),
               child: Row(
-                children: this.actions,
+                children: this.actions!,
               ),
             ),
         ],
@@ -151,9 +151,9 @@ class PostCard extends StatelessWidget {
 
 class Carousel extends StatefulWidget {
   Carousel(
-      {Key key,
-      @required this.items,
-      @required this.aspectRatio,
+      {Key? key,
+      required this.items,
+      required this.aspectRatio,
       this.indicator,
       this.indicatorColor,
       this.activeIndicatorWidth,
@@ -166,11 +166,11 @@ class Carousel extends StatefulWidget {
       : super(key: key);
   final List<Widget> items;
   final double aspectRatio;
-  final Widget indicator;
-  final Color indicatorColor;
-  final double activeIndicatorWidth, indicatorWidth, activeIndicatorHeight, indicatorHeight, indicatorRadius;
-  final GestureTapCallback onTap;
-  final ValueChanged<int> onPageChange;
+  final Widget? indicator;
+  final Color? indicatorColor;
+  final double? activeIndicatorWidth, indicatorWidth, activeIndicatorHeight, indicatorHeight, indicatorRadius;
+  final GestureTapCallback? onTap;
+  final ValueChanged<int>? onPageChange;
   _CarouselState createState() => _CarouselState();
 }
 
@@ -178,7 +178,7 @@ class _CarouselState extends State<Carousel> {
   final PageController controller = PageController();
   int page = 0;
 
-  double setIndicatorWidth(int index) {
+  double? setIndicatorWidth(int index) {
     if (index == page) {
       if (widget.activeIndicatorWidth != null) {
         return widget.activeIndicatorWidth;
@@ -194,7 +194,7 @@ class _CarouselState extends State<Carousel> {
     }
   }
 
-  double setIndicatorHeight() {
+  double? setIndicatorHeight() {
     if (widget.indicatorHeight != null) {
       return widget.indicatorHeight;
     } else {
@@ -214,7 +214,7 @@ class _CarouselState extends State<Carousel> {
               controller: controller,
               children: widget.items,
               onPageChanged: (pageIndex) {
-                if (widget.onPageChange != null) widget.onPageChange(pageIndex);
+                if (widget.onPageChange != null) widget.onPageChange!(pageIndex);
                 setState(() {
                   page = pageIndex;
                 });
@@ -234,7 +234,7 @@ class _CarouselState extends State<Carousel> {
                     margin: EdgeInsets.only(right: 5),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(
-                          widget.indicatorRadius != null ? widget.indicatorRadius : 10),
+                          widget.indicatorRadius != null ? widget.indicatorRadius! : 10),
                       color: widget.indicatorColor == null ? Colors.blueAccent : widget.indicatorColor,
                     ),
                   )
@@ -248,18 +248,18 @@ class _CarouselState extends State<Carousel> {
 
 class MaterialRadio extends StatefulWidget {
   const MaterialRadio(
-      {Key key,
+      {Key? key,
       this.color,
       this.selectColor,
       this.radius,
-      @required this.onChange,
+      required this.onChange,
       this.size,
       this.disenabled})
       : super(key: key);
-  final Color color;
-  final Color selectColor;
-  final double size, radius;
-  final bool disenabled;
+  final Color? color;
+  final Color? selectColor;
+  final double? size, radius;
+  final bool? disenabled;
   final void Function(bool) onChange;
   @override
   _MaterialRadioState createState() => _MaterialRadioState();
@@ -295,8 +295,8 @@ class _MaterialRadioState extends State<MaterialRadio> {
           ),
           if (selected)
             Container(
-              width: widget.size != null ? widget.size / 2 : 12.5,
-              height: widget.size != null ? widget.size / 2 : 12.5,
+              width: widget.size != null ? widget.size! / 2 : 12.5,
+              height: widget.size != null ? widget.size! / 2 : 12.5,
               decoration: BoxDecoration(
                   color: widget.selectColor ?? Colors.white,
                   borderRadius: BorderRadius.circular(
@@ -310,18 +310,18 @@ class _MaterialRadioState extends State<MaterialRadio> {
 }
 
 class CountDown extends StatefulWidget {
-  const CountDown({Key key, this.style, @required this.duration})
+  const CountDown({Key? key, this.style, required this.duration})
       : super(key: key);
-  final TextStyle style;
+  final TextStyle? style;
   final int duration;
   @override
   _CountDownState createState() => _CountDownState();
 }
 
 class _CountDownState extends State<CountDown> {
-  int interval;
+  late int interval;
   String time = "";
-  Timer timer;
+  late Timer timer;
 
   @override
   void initState() {
@@ -360,16 +360,16 @@ class _CountDownState extends State<CountDown> {
 
 class MenuButton extends StatelessWidget {
   const MenuButton(
-      {@required this.header,
-      @required this.icon,
+      {required this.header,
+      required this.icon,
       this.description,
       this.color,
-      @required this.route});
+      required this.route});
   final String header;
-  final String description;
+  final String? description;
   final IconData icon;
   final Widget route;
-  final Color color;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -398,7 +398,7 @@ class MenuButton extends StatelessWidget {
                       Container(
                           width: (width(context) / 2) - 5,
                           child: Text(
-                            description,
+                            description!,
                             style: const TextStyle(fontSize: 11),
                           ))
                   ],
@@ -415,18 +415,18 @@ class MenuButton extends StatelessWidget {
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {@required this.label,
-      @required this.controller,
+      {required this.label,
+      required this.controller,
       this.prefix,
       this.suffix,
       this.hint,this.color, this.border});
   final String label;
   final TextEditingController controller;
-  final Widget suffix;
-  final Widget prefix;
-  final String hint;
-  final Color color;
-  final InputBorder border;
+  final Widget? suffix;
+  final Widget? prefix;
+  final String? hint;
+  final Color? color;
+  final InputBorder? border;
   @override
   Widget build(BuildContext context) {
     return Column(
