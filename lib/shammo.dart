@@ -297,7 +297,7 @@ class _MaterialRadioState extends State<MaterialRadio> {
           if (widget.disenabled == null || (widget.disenabled == false)) {
             selected ? selected = false : selected = true;
           }
-          if (widget.onChange != null) widget.onChange(selected);
+        widget.onChange(selected);
         });
       },
       child: Stack(
