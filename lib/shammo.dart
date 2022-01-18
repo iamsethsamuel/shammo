@@ -1,4 +1,5 @@
 library shammo;
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -35,7 +36,13 @@ class Badge extends StatelessWidget {
 }
 
 class ContainerButton extends StatelessWidget {
-  ContainerButton({Key? key, this.body, this.action, this.bodyColor, this.margin, this.padding})
+  ContainerButton(
+      {Key? key,
+      this.body,
+      this.action,
+      this.bodyColor,
+      this.margin,
+      this.padding})
       : super(key: key);
   final Widget? body;
   final Widget? action;
@@ -68,8 +75,9 @@ Widget dropDropButtonUnderline(BuildContext context) {
     height: 40,
     padding: EdgeInsets.all(10),
     width: width(context),
-    decoration:
-        BoxDecoration(borderRadius: BorderRadius.circular(10), border: Border.all(color: Colors.grey)),
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.grey)),
   );
 }
 
@@ -102,7 +110,6 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       decoration: decoration,
       constraints: constraints,
@@ -116,17 +123,20 @@ class PostCard extends StatelessWidget {
             child: Row(
               children: [
                 if (this.avatar != null)
-                      Container(
-                          margin: EdgeInsets.only(right: 10),
-                          decoration: avatarDecoration,
-                          child: this.avatar),
+                  Container(
+                      margin: EdgeInsets.only(right: 10),
+                      decoration: avatarDecoration,
+                      child: this.avatar),
                 if (this.title != null) Expanded(flex: 9, child: this.title!),
                 if (this.action != null) Container(child: this.action),
               ],
             ),
           ),
           if (this.subheader != null)
-            Container(margin: EdgeInsets.all(10), width: width(context), child: this.subheader),
+            Container(
+                margin: EdgeInsets.all(10),
+                width: width(context),
+                child: this.subheader),
           if (this.content != null)
             Container(
               margin: EdgeInsets.all(5),
@@ -168,7 +178,11 @@ class Carousel extends StatefulWidget {
   final double aspectRatio;
   final Widget? indicator;
   final Color? indicatorColor;
-  final double? activeIndicatorWidth, indicatorWidth, activeIndicatorHeight, indicatorHeight, indicatorRadius;
+  final double? activeIndicatorWidth,
+      indicatorWidth,
+      activeIndicatorHeight,
+      indicatorHeight,
+      indicatorRadius;
   final GestureTapCallback? onTap;
   final ValueChanged<int>? onPageChange;
   _CarouselState createState() => _CarouselState();
@@ -214,7 +228,8 @@ class _CarouselState extends State<Carousel> {
               controller: controller,
               children: widget.items,
               onPageChanged: (pageIndex) {
-                if (widget.onPageChange != null) widget.onPageChange!(pageIndex);
+                if (widget.onPageChange != null)
+                  widget.onPageChange!(pageIndex);
                 setState(() {
                   page = pageIndex;
                 });
@@ -226,7 +241,8 @@ class _CarouselState extends State<Carousel> {
               width: width(context),
               alignment: Alignment.center,
               height: setIndicatorHeight(),
-              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 for (int index = 0; index < widget.items.length; index++)
                   Container(
                     width: setIndicatorWidth(index),
@@ -234,8 +250,12 @@ class _CarouselState extends State<Carousel> {
                     margin: EdgeInsets.only(right: 5),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(
-                          widget.indicatorRadius != null ? widget.indicatorRadius! : 10),
-                      color: widget.indicatorColor == null ? Colors.blueAccent : widget.indicatorColor,
+                          widget.indicatorRadius != null
+                              ? widget.indicatorRadius!
+                              : 10),
+                      color: widget.indicatorColor == null
+                          ? Colors.blueAccent
+                          : widget.indicatorColor,
                     ),
                   )
               ]))
@@ -244,7 +264,6 @@ class _CarouselState extends State<Carousel> {
     );
   }
 }
-
 
 class MaterialRadio extends StatefulWidget {
   const MaterialRadio(
@@ -357,7 +376,6 @@ class _CountDownState extends State<CountDown> {
   }
 }
 
-
 class MenuButton extends StatelessWidget {
   const MenuButton(
       {required this.header,
@@ -373,7 +391,7 @@ class MenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: color??Colors.blueAccent,
+        color: color ?? Colors.blueAccent,
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         margin: const EdgeInsets.symmetric(horizontal: 30)
             .add(const EdgeInsets.only(top: 10)),
@@ -382,7 +400,10 @@ class MenuButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(icon, color: color??Colors.blueAccent,),
+              Icon(
+                icon,
+                color: color ?? Colors.blueAccent,
+              ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5),
                 width: width(context) / 2,
@@ -405,13 +426,14 @@ class MenuButton extends StatelessWidget {
                 ),
               ),
               RotatedBox(
-                  quarterTurns: 2, child: Icon(Icons.arrow_back_ios,color: color??Colors.blueAccent))
+                  quarterTurns: 2,
+                  child: Icon(Icons.arrow_back_ios,
+                      color: color ?? Colors.blueAccent))
             ],
           ),
         ));
   }
 }
-
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
@@ -419,7 +441,9 @@ class CustomTextField extends StatelessWidget {
       required this.controller,
       this.prefix,
       this.suffix,
-      this.hint,this.color, this.border});
+      this.hint,
+      this.color,
+      this.border});
   final String label;
   final TextEditingController controller;
   final Widget? suffix;
@@ -441,10 +465,11 @@ class CustomTextField extends StatelessWidget {
             controller: controller,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
-              border: border,
+                border: border,
                 hintText: hint,
-                hintStyle: const TextStyle(fontSize: 16,fontWeight: FontWeight.w600),
-                suffixStyle: TextStyle(color:color),
+                hintStyle:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                suffixStyle: TextStyle(color: color),
                 prefixStyle: TextStyle(color: color),
                 prefixIcon: prefix,
                 suffixIcon: suffix),
@@ -453,4 +478,120 @@ class CustomTextField extends StatelessWidget {
       ],
     );
   }
+}
+
+class MaterialCard extends StatelessWidget {
+  const MaterialCard(
+      {Key? key,
+      this.title,
+      this.actions,
+      this.action,
+      this.subheader,
+      this.avatar,
+      this.content,
+      this.decoration,
+      this.constraints,
+      this.margin,
+      this.avatarDecoration,
+      this.padding})
+      : super(key: key);
+  final Widget? title;
+  final List<Widget>? actions;
+  final Widget? action;
+  final Widget? subheader;
+  final Widget? avatar;
+  final Widget? content;
+  final BoxDecoration? decoration;
+  final BoxConstraints? constraints;
+  final EdgeInsets? margin;
+  final EdgeInsets? padding;
+  final BoxDecoration? avatarDecoration;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: decoration,
+      constraints: constraints,
+      padding: padding,
+      margin: margin,
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.all(5),
+            width: width(context),
+            child: Row(
+              children: [
+                if (avatar != null)
+                  Container(
+                      child: Container(
+                          margin: const EdgeInsets.only(right: 10),
+                          decoration: avatarDecoration,
+                          child: avatar)),
+                if (title != null) Expanded(flex: 9, child: title!),
+                if (action != null) Container(child: action),
+              ],
+            ),
+          ),
+          if (subheader != null)
+            Container(
+                margin: const EdgeInsets.all(10),
+                width: width(context),
+                child: subheader),
+          if (content != null)
+            Container(
+              margin: const EdgeInsets.all(5),
+              width: width(context),
+              child: Column(
+                children: [content!],
+              ),
+            ),
+          if (actions != null)
+            Container(
+              margin: const EdgeInsets.all(5),
+              width: width(context),
+              child: Row(
+                children: actions!,
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class SnackbarButton extends StatelessWidget {
+  const SnackbarButton(
+      {required this.onPressed,
+      this.child,
+      this.color,
+      this.textColor,
+      this.text});
+  final Widget? child;
+  final Color? color, textColor;
+  final String? text;
+  final Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width(context),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(primary: color ?? Colors.blueAccent),
+        onPressed: onPressed,
+        child: child ??
+            Text(
+              text!,
+              style: TextStyle(color: textColor ?? Colors.white),
+            ),
+      ),
+    );
+  }
+}
+
+ThemeData getTheme(BuildContext context) {
+  return Theme.of(context);
+}
+
+MediaQueryData getMedia(BuildContext context) {
+  return MediaQuery.of(context);
 }

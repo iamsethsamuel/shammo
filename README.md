@@ -43,6 +43,11 @@ This is a package that contains many components that developers typically need t
 >   ```dart
 >    CustomTextField(label: Text("Name"),hint: "First name", border: OutlineInputBorder())
 >   ```
+> - ### MaterialCard
+>   This creates a widget create a MaterialCard. You can add an avatar, title, subheader etc 
+>   ```dart
+>    MaterialCard(title: Text("Name"), avatar: Image.network(url), decoration: BoxDecoration(color: Colors.white), content: Carousel(onTap: (){},aspectRatio: 16/8,items:[Image.asset("assest/images/img.png"),Image.asset("assest/images/img1.png", Image.asset("assest/images/img2.png"], ))
+>   ```
 
 ## Utilities
 These are the functions that provides functionalities that can to used throughout an app. Here is the list of the functions.
@@ -61,12 +66,13 @@ These are the functions that provides functionalities that can to used throughou
 > - **getRequest(context,"https://get.com")**
 > - **removeSnackbar(context)**
 > - **generateColor("text", "#ffe")**
-> - **convertGradient("gradient(from:#ffe",to:#efe))**
+> - **getTheme(context).cardColor**
+> - **getMedia(context).padding**
 
 ## Contributing
 Send your GitHub user name to sethsamuel03@gmail.com
 
 ## Follow
 - Twitter @iamsethsamuel
-- GitHub https://github.com/Sectur1
+- GitHub https://github.com/iamsethsamuel
 - 
