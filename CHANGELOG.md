@@ -9,3 +9,7 @@
 ## 2.0.1
 
 * The MaterialRadio, MaterialCard, SnackbarButton were added and getTheme and getMedia were added
+
+## 3.0.0
+ * commaSeperatedNumber, toDouble, toInt, copy, convertToColor, getColorCode, confirmAction, showSnackBar were added
+ * showsnackbar no longer inherits the canvas color

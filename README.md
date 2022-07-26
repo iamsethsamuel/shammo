@@ -62,15 +62,18 @@ These are the functions that provides functionalities that can to used throughou
 > - **showSnackBar(context, "Hey there")**
 > - **openDialog(context,Text("Delete") Text("Are you sure you want to deleted?"),actions:[ElevatedButton(child: Text("Yes"),),ElevatedButton(child: Text("No"),)])**
 > - **closeDialog(context)**
-> - **postRequest(context, "https://post.com",jsonEncode({"data":"Hello"}))**
-> - **getRequest(context,"https://get.com")**
 > - **removeSnackbar(context)**
 > - **generateColor("text", "#ffe")**
 > - **getTheme(context).cardColor**
 > - **getMedia(context).padding**
-
-## Contributing
-Send your GitHub user name to sethsamuel03@gmail.com
+> - **commaSeperatedNumber(100000)**
+> - **toDouble(number)**
+> - **toInt(number)**
+> - **copy(context, text)**
+> - **convertToColor("#fes")**
+> - **getColorCode("1d34a1")**
+> - **confirmAction(context, confirm: "Delete",onConfirm: ()=>list.removeAt(0)))**
+> - **showSnackBar(context, "Done")**
 
 ## Follow
 - Twitter @iamsethsamuel
