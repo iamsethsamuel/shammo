@@ -43,6 +43,11 @@ This is a package that contains many components that developers typically need t
 >   ```dart
 >    CustomTextField(label: Text("Name"),hint: "First name", border: OutlineInputBorder())
 >   ```
+> - ### MaterialCard
+>   This creates a widget create a MaterialCard. You can add an avatar, title, subheader etc 
+>   ```dart
+>    MaterialCard(title: Text("Name"), avatar: Image.network(url), decoration: BoxDecoration(color: Colors.white), content: Carousel(onTap: (){},aspectRatio: 16/8,items:[Image.asset("assest/images/img.png"),Image.asset("assest/images/img1.png", Image.asset("assest/images/img2.png"], ))
+>   ```
 
 ## Utilities
 These are the functions that provides functionalities that can to used throughout an app. Here is the list of the functions.
@@ -57,16 +62,20 @@ These are the functions that provides functionalities that can to used throughou
 > - **showSnackBar(context, "Hey there")**
 > - **openDialog(context,Text("Delete") Text("Are you sure you want to deleted?"),actions:[ElevatedButton(child: Text("Yes"),),ElevatedButton(child: Text("No"),)])**
 > - **closeDialog(context)**
-> - **postRequest(context, "https://post.com",jsonEncode({"data":"Hello"}))**
-> - **getRequest(context,"https://get.com")**
 > - **removeSnackbar(context)**
 > - **generateColor("text", "#ffe")**
-> - **convertGradient("gradient(from:#ffe",to:#efe))**
-
-## Contributing
-Send your GitHub user name to sethsamuel03@gmail.com
+> - **getTheme(context).cardColor**
+> - **getMedia(context).padding**
+> - **commaSeperatedNumber(100000)**
+> - **toDouble(number)**
+> - **toInt(number)**
+> - **copy(context, text)**
+> - **convertToColor("#fes")**
+> - **getColorCode("1d34a1")**
+> - **confirmAction(context, confirm: "Delete",onConfirm: ()=>list.removeAt(0)))**
+> - **showSnackBar(context, "Done")**
 
 ## Follow
 - Twitter @iamsethsamuel
-- GitHub https://github.com/Sectur1
+- GitHub https://github.com/iamsethsamuel
 - 
