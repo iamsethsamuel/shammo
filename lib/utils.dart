@@ -1,36 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-Dio dio = Dio();
-double width(BuildContext context) {
-  return MediaQuery.of(context).size.width;
-}
-
-double height(BuildContext context) {
-  return MediaQuery.of(context).size.height;
-}
-
-Color canvasColor(BuildContext context) {
-  return Theme.of(context).canvasColor;
-}
-
-Color cardColor(BuildContext context) {
-  return Theme.of(context).cardColor;
-}
-
-void push(BuildContext context, Widget widget) {
-  Navigator.push(context, MaterialPageRoute(builder: (context) => widget));
-}
-
-void pushReplacement(BuildContext context, Widget widget) {
-  Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (context) => widget));
-}
-
-void pop(BuildContext context) {
-  Navigator.of(context).pop();
-}
+import 'package:shammo/shammo.dart';
 
 void showSnackBar(BuildContext context, dynamic widget,
     {Duration? duration,
@@ -284,7 +254,7 @@ void confirmAction(
               ElevatedButton(
                 key: confirmKey ?? const Key("yes"),
                 style: confirmButtonStyle ??
-                    ElevatedButton.styleFrom(primary: Colors.red),
+                    ElevatedButton.styleFrom(backgroundColor: Colors.red),
                 onPressed: () {
                   pop(context);
                   onConfirm!();
@@ -349,7 +319,7 @@ void openBottomSheet(
             height: height(context) / 2,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: backgroundColor,
+              color: backgroundColor ?? canvasColor(context),
             ),
             margin: const EdgeInsets.all(10).add(
               EdgeInsets.only(
@@ -385,10 +355,8 @@ void openBottomSheet(
   );
 }
 
-IconThemeData iconTheme(BuildContext context) {
-  return Theme.of(context).iconTheme;
-}
-
-Color? iconColor(BuildContext context) {
-  return iconTheme(context).color;
+double percentageCalculator(dynamic number, dynamic percentage) {
+  final parsedNumber = int.tryParse(number.toString()) ?? 0;
+  final parsedPercentage = int.tryParse(percentage.toString()) ?? 0;
+  return (parsedNumber / (parsedNumber + parsedPercentage)) * 100;
 }

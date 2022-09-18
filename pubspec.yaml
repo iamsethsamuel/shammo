@@ -1,6 +1,6 @@
 name: shammo
 description: Shammo is a utility library that has a lot of functions for simple the app development circle of a Flutter developer.
-version: 3.0.0
+version: 4.0.0
 homepage: https://github.com/Sectur1/shammo
 
 environment:
