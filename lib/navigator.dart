@@ -217,9 +217,6 @@ String restorableReplaceRouteBelow(
 }
 
 bool isNavMounted(BuildContext context) {
-  if (!isNavMounted(context)) {
-    throw "Navigator is unmounted";
-  }
   if (Navigator.maybeOf(context) == null) {
     return false;
   }
