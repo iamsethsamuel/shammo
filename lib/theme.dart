@@ -182,11 +182,11 @@ TooltipThemeData tooltipTheme(BuildContext context) {
 }
 
 TextStyle? bodyText1(BuildContext context) {
-  return textTheme(context).bodyText1;
+  return textTheme(context).bodyLarge;
 }
 
 TextStyle? bodyText2(BuildContext context) {
-  return textTheme(context).bodyText2;
+  return textTheme(context).bodyMedium;
 }
 
 TextStyle? bodyMedium(BuildContext context) {
@@ -202,11 +202,11 @@ TextStyle? bodySmall(BuildContext context) {
 }
 
 TextStyle? buttonTextStyle(BuildContext context) {
-  return textTheme(context).button;
+  return textTheme(context).labelLarge;
 }
 
 TextStyle? caption(BuildContext context) {
-  return textTheme(context).caption;
+  return textTheme(context).bodySmall;
 }
 
 TextStyle? displayLarge(BuildContext context) {
@@ -222,27 +222,27 @@ TextStyle? displaySmall(BuildContext context) {
 }
 
 TextStyle? headline1(BuildContext context) {
-  return textTheme(context).headline1;
+  return textTheme(context).displayLarge;
 }
 
 TextStyle? headline2(BuildContext context) {
-  return textTheme(context).headline2;
+  return textTheme(context).displayMedium;
 }
 
 TextStyle? headline3(BuildContext context) {
-  return textTheme(context).headline3;
+  return textTheme(context).displaySmall;
 }
 
 TextStyle? headline4(BuildContext context) {
-  return textTheme(context).headline4;
+  return textTheme(context).headlineMedium;
 }
 
 TextStyle? headline5(BuildContext context) {
-  return textTheme(context).headline5;
+  return textTheme(context).headlineSmall;
 }
 
 TextStyle? headline6(BuildContext context) {
-  return textTheme(context).headline6;
+  return textTheme(context).titleLarge;
 }
 
 TextStyle? headlineLarge(BuildContext context) {
@@ -270,15 +270,15 @@ TextStyle? labelSmall(BuildContext context) {
 }
 
 TextStyle? overline(BuildContext context) {
-  return textTheme(context).overline;
+  return textTheme(context).labelSmall;
 }
 
 TextStyle? subtitle1(BuildContext context) {
-  return textTheme(context).subtitle1;
+  return textTheme(context).titleMedium;
 }
 
 TextStyle? subtitle2(BuildContext context) {
-  return textTheme(context).subtitle2;
+  return textTheme(context).titleSmall;
 }
 
 TextStyle? titleLarge(BuildContext context) {
