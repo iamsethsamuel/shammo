@@ -292,3 +292,7 @@ TextStyle? titleMedium(BuildContext context) {
 TextStyle? titleSmall(BuildContext context) {
   return textTheme(context).titleSmall;
 }
+
+Brightness brightness(BuildContext context) {
+  return Theme.of(context).brightness;
+}

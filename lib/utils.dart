@@ -240,42 +240,59 @@ void confirmAction(
   Key? confirmKey,
   bool? useRedColor,
   String? title,
+  Widget? closeWidget,
+  Widget? confirmWidget,
+  Widget? messageWidget,
+  Widget? titleWidget,
 }) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: Text(title ?? "Are you sure you can to continue"),
-      content: message == null ? null : Text(message),
+      title: titleWidget != null
+          ? titleWidget
+          : Text(title ?? "Are you sure you can to continue"),
+      content: messageWidget != null
+          ? messageWidget
+          : message == null
+              ? null
+              : Text(message),
       actions: [
-        Container(
-          width: width(context),
-          padding: const EdgeInsets.all(10),
-          child: actionButtonStyle ??
-              ElevatedButton(
-                key: confirmKey ?? const Key("yes"),
-                style: confirmButtonStyle ??
-                    ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                onPressed: () {
-                  pop(context);
-                  onConfirm!();
-                },
-                child: Text(confirm ?? "Yes"),
-              ),
-        ),
-        Container(
-          width: width(context),
-          padding: const EdgeInsets.all(10),
-          child: ElevatedButton(
-            key: const Key("no"),
-            onPressed: () {
-              if (onClose != null) {
-                onClose();
-              }
-              pop(context);
-            },
-            child: Text(close ?? "No"),
+        if (confirmWidget != null)
+          confirmWidget
+        else
+          Container(
+            width: width(context),
+            padding: const EdgeInsets.all(10),
+            child: actionButtonStyle ??
+                ElevatedButton(
+                  key: confirmKey ?? const Key("yes"),
+                  style: confirmButtonStyle ??
+                      ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  onPressed: () {
+                    pop(context);
+                    onConfirm!();
+                  },
+                  child: Text(confirm ?? "Yes"),
+                ),
           ),
-        ),
+        if (closeWidget != null)
+          closeWidget
+        else
+          Container(
+            width: width(context),
+            padding: const EdgeInsets.all(10),
+            child: ElevatedButton(
+              key: const Key("no"),
+              style: closeButtonStyle,
+              onPressed: () {
+                if (onClose != null) {
+                  onClose();
+                }
+                pop(context);
+              },
+              child: Text(close ?? "No"),
+            ),
+          ),
       ],
     ),
   );
