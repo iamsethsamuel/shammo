@@ -306,6 +306,9 @@ void openBottomSheet(
   bool? hasInputField,
   Color? backgroundColor,
   Color? handleColor,
+  EdgeInsets? padding,
+  EdgeInsets? margin,
+  BorderRadius? borderRadius,
 }) {
   showModalBottomSheet(
     context: context,
@@ -335,17 +338,18 @@ void openBottomSheet(
           return Container(
             height: height(context) / 2,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: borderRadius ?? BorderRadius.circular(10),
               color: backgroundColor ?? canvasColor(context),
             ),
-            margin: const EdgeInsets.all(10).add(
-              EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets == EdgeInsets.zero
-                    ? 0
-                    : MediaQuery.of(context).viewInsets.bottom,
-              ),
-            ),
-            padding: const EdgeInsets.all(10),
+            margin: margin ??
+                const EdgeInsets.all(10).add(
+                  EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets == EdgeInsets.zero
+                        ? 0
+                        : MediaQuery.of(context).viewInsets.bottom,
+                  ),
+                ),
+            padding: padding ?? const EdgeInsets.all(10),
             child: ListView(
               controller: controller,
               children: [
