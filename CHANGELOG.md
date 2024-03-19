@@ -18,3 +18,8 @@
 ## 4.0.0
  
  * All MediaQuery, Theme and Navigator methods were added 
+
+
+## 4.1.4
+ 
+ * All Scaffold methods and fields were added
