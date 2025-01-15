@@ -23,3 +23,5 @@
 ## 4.1.4
  
  * All Scaffold methods and fields were added
+
+## 4.2.0

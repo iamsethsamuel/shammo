@@ -33,11 +33,8 @@ BottomSheetThemeData bottomSheetTheme(BuildContext context) {
   return theme(context).bottomSheetTheme;
 }
 
-ButtonBarThemeData buttonBarTheme(BuildContext context) {
-  return theme(context).buttonBarTheme;
-}
 
-CardTheme cardTheme(BuildContext context) {
+CardThemeData cardTheme(BuildContext context) {
   return theme(context).cardTheme;
 }
 
@@ -61,7 +58,7 @@ DataTableThemeData dataTableTheme(BuildContext context) {
   return theme(context).dataTableTheme;
 }
 
-DialogTheme dialogTheme(BuildContext context) {
+DialogThemeData dialogTheme(BuildContext context) {
   return theme(context).dialogTheme;
 }
 
@@ -153,7 +150,7 @@ SwitchThemeData switchTheme(BuildContext context) {
   return theme(context).switchTheme;
 }
 
-TabBarTheme tabBarTheme(BuildContext context) {
+TabBarThemeData tabBarTheme(BuildContext context) {
   return theme(context).tabBarTheme;
 }
 
