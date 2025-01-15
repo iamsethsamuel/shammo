@@ -25,3 +25,4 @@
  * All Scaffold methods and fields were added
 
 ## 4.2.0
+    * Upgraded to Flutter 3.27.2
