@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shammo/shammo.dart';
+import 'package:shammo_plus/mediaquery.dart';
+import 'package:shammo_plus/navigator.dart';
+import 'package:shammo_plus/theme.dart';
 
 void showSnackBar(BuildContext context, dynamic widget,
     {Duration? duration,

@@ -3,7 +3,8 @@ library shammo;
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:shammo/shammo.dart';
+import 'package:shammo_plus/mediaquery.dart';
+import 'package:shammo_plus/navigator.dart';
 
 class Badge extends StatelessWidget {
   Badge({Key? key, this.child, this.badge, this.badgeColor}) : super(key: key);
