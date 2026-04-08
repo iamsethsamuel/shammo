@@ -13,7 +13,7 @@ Color cardColor(BuildContext context) {
   return theme(context).cardColor;
 }
 
-AppBarTheme appBarTheme(BuildContext context) {
+AppBarThemeData appBarTheme(BuildContext context) {
   return theme(context).appBarTheme;
 }
 
@@ -21,7 +21,7 @@ IconThemeData? actionsIconTheme(BuildContext context) {
   return appBarTheme(context).actionsIconTheme;
 }
 
-BottomAppBarTheme bottomAppBarTheme(BuildContext context) {
+BottomAppBarThemeData bottomAppBarTheme(BuildContext context) {
   return theme(context).bottomAppBarTheme;
 }
 
@@ -90,7 +90,7 @@ IconThemeData iconTheme(BuildContext context) {
   return theme(context).iconTheme;
 }
 
-InputDecorationTheme inputDecorationTheme(BuildContext context) {
+InputDecorationThemeData inputDecorationTheme(BuildContext context) {
   return theme(context).inputDecorationTheme;
 }
 
